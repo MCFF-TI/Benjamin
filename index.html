@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Convite do Benjamim - Toy Story</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #87ceeb, #ffffff);
+      font-family: 'Fredoka One', cursive;
+      text-align: center;
+      color: #333;
+    }
+
+    .card {
+      max-width: 500px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    img.baby {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #f4d03f;
+      box-shadow: 0 0 12px #2980b9;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #e74c3c;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #2980b9;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 10px 0 20px 0;
+    }
+
+    .data {
+      background: #f4d03f;
+      color: #222;
+      padding: 15px;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      margin: 15px 0;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #27ae60;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    a.btn:hover {
+      background: #219150;
+    }
+
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2471a3;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        margin: 20px;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="imagens/benjamim.jpg" alt="Benjamim" class="baby" />
+    <h1>Benjamim faz 1!</h1>
+    <h2>Você é nosso convidado especial!</h2>
+
+    <p>
+      Vamos comemorar o 1º aninho do nosso pequeno explorador no mundo do Toy Story!<br>
+      Prepare seu chapéu de cowboy e venha se divertir com a gente!
+    </p>
+
+    <div class="data">
+      📅 15 de Junho às 16h<br>
+      📍 Rua Pixar, 123 – Salão Woody & Buzz
+    </div>
+
+    <a href="https://maps.google.com" target="_blank" class="btn">Ver no mapa</a>
+
+    <button onclick="tocarMusica()">🎵 Tocar Música</button>
+    <audio id="musica" src="musica.mp3" loop></audio>
+  </div>
+
+  <footer>Você tem um amigo em mim... e um convite também! 🤠</footer>
+
+  <script>
+    function tocarMusica() {
+      const musica = document.getElementById("musica");
+      if (musica.paused) {
+        musica.play();
+        event.target.textContent = "⏸ Pausar Música";
+      } else {
+        musica.pause();
+        event.target.textContent = "🎵 Tocar Música";
+      }
+    }
+  </script>
+</body>
+</html>
