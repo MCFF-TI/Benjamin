@@ -3,138 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Convite do Benjamim - Toy Story</title>
+  <title>Convite Toy Story - Benjamim</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #87ceeb, #ffffff);
       font-family: 'Fredoka One', cursive;
-      text-align: center;
+      background: #87ceeb;
+      overflow-x: hidden;
       color: #333;
     }
 
-    .card {
-      max-width: 500px;
-      margin: 50px auto;
-      background: white;
-      border-radius: 20px;
-      padding: 30px 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    .nuvens {
+      background: url('https://i.imgur.com/dZL7Nba.png') repeat-x top center;
+      height: 120px;
+      animation: nuvensMove 60s linear infinite;
     }
 
-    img.baby {
+    @keyframes nuvensMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    img.foto {
       width: 140px;
       height: 140px;
       border-radius: 50%;
-      object-fit: cover;
       border: 5px solid #f4d03f;
-      box-shadow: 0 0 12px #2980b9;
-      margin-bottom: 20px;
+      box-shadow: 0 0 15px #2c3e50;
+      animation: pulse 2s infinite;
+      object-fit: cover;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
 
     h1 {
       color: #e74c3c;
       font-size: 2.2rem;
-      margin-bottom: 15px;
+      margin-top: 10px;
     }
 
-    h2 {
-      color: #2980b9;
-      margin-bottom: 10px;
+    .descricao {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin: 20px;
     }
 
-    p {
-      font-size: 1.1rem;
-      margin: 10px 0 20px 0;
-    }
-
-    .data {
+    .dados {
       background: #f4d03f;
-      color: #222;
       padding: 15px;
       border-radius: 15px;
-      font-size: 1.2rem;
-      margin: 15px 0;
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 1.1rem;
     }
 
-    a.btn {
-      display: inline-block;
-      margin-top: 10px;
+    .botoes {
+      margin-top: 20px;
+    }
+
+    .btn {
       background: #27ae60;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 1rem;
+      margin: 10px;
       text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
+      display: inline-block;
       transition: 0.3s;
     }
 
-    a.btn:hover {
-      background: #219150;
+    .btn:hover {
+      background: #1e8449;
     }
 
-    button {
-      background: #3498db;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 1rem;
-      margin-top: 20px;
-      cursor: pointer;
+    .estrelas {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      animation: girar 12s linear infinite;
     }
 
-    button:hover {
-      background: #2471a3;
+    @keyframes girar {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
     }
 
-    footer {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #555;
+    .balao {
+      position: absolute;
+      bottom: -150px;
+      animation: subir 6s ease-in infinite;
+      opacity: 0.8;
     }
 
-    @media (max-width: 480px) {
-      .card {
-        margin: 20px;
-        padding: 20px;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
+    @keyframes subir {
+      0% { bottom: -150px; left: 10%; opacity: 0; }
+      50% { opacity: 1; }
+      100% { bottom: 100%; left: 80%; opacity: 0; }
+    }
+
+    @media (max-width: 500px) {
+      .descricao { font-size: 1rem; }
+      .dados { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <img src="ben.jpg" alt="Benjamim" class="baby" />
-    <h1>Benjamim faz 1!</h1>
-    <h2>Você é nosso convidado especial!</h2>
 
-    <p>
-      Vamos comemorar o 1º aninho do nosso pequeno explorador no mundo do Toy Story!<br>
-      Prepare seu chapéu de cowboy e venha se divertir com a gente!
-    </p>
+  <div class="nuvens"></div>
 
-    <div class="data">
-      📅 15 de Junho às 16h<br>
-      📍 Rua Pixar, 123 – Salão Woody & Buzz
+  <img src="https://i.imgur.com/7GzP0LI.png" class="estrelas" width="80" alt="Estrela" />
+  <img src="https://i.imgur.com/Yx7HVHY.png" class="balao" width="60" alt="Balão" />
+
+  <div class="container">
+    <img src="ben.jpg" alt="Benjamim" class="foto" />
+    <h1>Benjamim faz 1 aninho!</h1>
+    <div class="descricao">
+      Você é nosso convidado para uma aventura<br />
+      no universo do Toy Story! 🤠🚀
+    </div>
+    <div class="dados">
+      📅 15 de Junho, às 16h<br />
+      📍 Rua Pixar, 123 – Salão da Diversão
     </div>
 
-    <a href="https://maps.google.com" target="_blank" class="btn">Ver no mapa</a>
-
-    <button onclick="tocarMusica()">🎵 Tocar Música</button>
-    <audio id="musica" src="musica.mp3" loop></audio>
+    <div class="botoes">
+      <a class="btn" href="https://maps.google.com" target="_blank">📍 Ver no mapa</a>
+      <button class="btn" onclick="toggleMusica()">🎵 Música</button>
+    </div>
   </div>
 
-  <footer>Você tem um amigo em mim... e um convite também! 🤠</footer>
+  <audio id="musica" src="musica.mp3" loop></audio>
 
   <script>
-    function tocarMusica() {
-      const musica = document.getElementById("musica");
+    function toggleMusica() {
+      const musica = document.getElementById('musica');
       if (musica.paused) {
         musica.play();
         event.target.textContent = "⏸ Pausar Música";
